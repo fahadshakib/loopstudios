@@ -1,0 +1,44 @@
+.section__about {
+    position: relative;
+    width: 70%;
+    margin: 15rem auto;
+  
+    @include respond(tab-port) {
+      width: 90%;
+    }
+  }
+  
+  .about__left {
+    width: 50%;
+    height: 40rem;
+    @include respond(phone) {
+      width: 80%;
+      height: 30rem;
+      margin: 0 auto;
+    }
+  }
+  .about__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .about__details {
+    background-color: $color-primary;
+    padding: 3rem 5rem;
+    position: absolute;
+    bottom: -10rem;
+    left: 30%;
+    @include respond(phone) {
+      width: 100%;
+      position: relative;
+      bottom: 0;
+      left: 0;
+    }
+    &--text {
+      font-size: 1.2rem;
+      font-weight: 300;
+      line-height: 1.5;
+      color: $color-secondary;
+      letter-spacing: 0.1rem;
+    }
+  }

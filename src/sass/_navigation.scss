@@ -1,0 +1,129 @@
+.navbar {
+    height: 7rem;
+    width: 100%;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    &__logo {
+      height: 1.4rem;
+    }
+  
+    &__items {
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  
+      @include respond(tab-port) {
+        display: none;
+      }
+    }
+    &__item {
+      position: relative;
+      margin: 0 1.5rem;
+  
+      &::after {
+        content: "";
+        background-color: $color-primary;
+        width: 0.1rem;
+        height: 0.1rem;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.35s ease;
+      }
+    }
+    &__item:hover &__link {
+      color: $color-primary;
+      transform: scale(0.9);
+      &:active {
+        transform: scale(0.6);
+      }
+    }
+    &__item:hover {
+      &::after {
+        opacity: 1;
+        visibility: visible;
+        width: 90%;
+      }
+    }
+    &__link {
+      &:link,
+      &:visited {
+        display: inline-block;
+        text-decoration: none;
+        font-size: 1.4rem;
+        color: $color-primary;
+        font-weight: 500;
+        padding: 0.5rem 1.6rem;
+        transition: all 0.35s;
+      }
+    }
+  
+    &__toggle {
+      position: fixed;
+      right: 2rem;
+      width: 19px;
+      height: 14px;
+      display: none;
+      cursor: pointer;
+      background: transparent;
+      z-index: 1000;
+      @include respond(tab-port) {
+        display: inline-block;
+      }
+      &--icon {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+
+.mobile__menu {
+    list-style: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 15rem;
+    background-color: rgba($color-tertiary, 0.4);
+    z-index: 1;
+    transform: translateX(100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    &--item {
+      margin: 0.5rem 0;
+    }
+  
+    &--link {
+      &:link,
+      &:visited {
+        display: inline-block;
+        font-size: 1.3rem;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 0.5rem 1.8rem;
+        color: $color-primary;
+        transition: all 0.3s ease;
+      }
+  
+      &:hover,
+      &:active {
+        border: 1px solid $color-primary;
+        transform: scale(0.8);
+      }
+    }
+  }
